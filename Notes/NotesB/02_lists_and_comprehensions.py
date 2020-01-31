@@ -111,12 +111,103 @@ for i in range(len(my_list)):
 
 print(my_list)
 
-# SAMPLE LIST COMPREHENSION
-my_list = [x ** 2 for x in range(100)]
+#  LIST COMPREHENSIONS
+
+# make a list of numbers 0 to 100
+my_list = []
+
+for i in range(101):
+    my_list.append(i)
+
+print(my_list)
+
+# using list comprehension
+# [OUTPUT for item in loop]
+my_list = [x for x in range(101)]
 print(my_list)
 
 
 
 
+# make a list 0 to 100 squared
+my_list = []
 
+for i in range(101):
+    my_list.append(i ** 2)
+
+print(my_list)
+
+my_list = [x ** 2 for x in range(101)]
+print(my_list)
+
+
+# make a list of 1 to 100 squared, but filter out the odd numbers
+my_list = []
+
+for i in range(101):
+    if(i ** 2) % 2 == 0:
+        my_list.append(i ** 2)
+
+print(my_list)
+
+my_list = [x ** 2 for x in range(101) if x ** 2 % 2 == 0]
+
+
+# roll a single die 100 times and add it to a list
+my_list = []
+
+for i in range(100):
+    my_list.append(random.randrange(1, 7))
+
+print(my_list)
+
+my_list = [random.randrange(1, 7) for x in range(100)]
+print(my_list)
+
+
+# roll two die and add them to a list
+my_list = []
+
+for i in range(100):
+    my_list.append([random.randrange(1, 7), random.randrange(1, 7)])
+
+print(my_list)
+
+
+
+my_list = [[random.randrange(1, 7), random.randrange(1, 7)] for x in range(100)]
+print(my_list)
+
+
+# go back through list and make a new list of sums of two die
+my_sums = [sum(x) for x in my_list]
+print(my_sums)
+
+
+# make a list from the 100 rolls that shows only the doubles
+my_doubles = [x for x in my_list if x[0] == x[1]]
+print(my_doubles)
+
+
+# all at once
+# roll 100 pairs and only put in the doubles
+
+my_list = [x for x in [[random.randrange(1, 7), random.randrange(1, 7)] for x in range(100)] if x[0] == x[1]]
+
+print(my_list)
+
+
+#  Working with Strings is a lot like lists
+first = "Francis"
+last = "Parker"
+print(first[0])
+first = first.upper()
+print(first + last)
+print(last[-2:])
+
+for letter in first:
+    print(letter)
+
+if "N" in first:
+    print("YES")
 
