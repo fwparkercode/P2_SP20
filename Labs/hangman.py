@@ -16,6 +16,7 @@
 # if the user gets all the correct letters, tell the user they won
 
 # ask if they want to play again
+import random
 
 gallows = [
     '''
@@ -84,3 +85,15 @@ gallows = [
     ]
 
 print(gallows[4])
+
+
+print("Hello\nWorld")
+
+
+alphabet = [chr(x) for x in range(65, 65 + 26)]
+print(alphabet)
+
+random.shuffle(alphabet)
+print(alphabet)
+
+
