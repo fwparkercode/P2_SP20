@@ -76,4 +76,39 @@ def linear_search(key, my_list):
 print(linear_search("Lavinia Nyx", villains))
 
 
+
 # Binary Search
+villains.sort()
+
+key = "THEODORA THE WICKED"
+lower_bound = 0
+upper_bound = len(villains) - 1
+found = False
+
+while lower_bound <= upper_bound and not found:
+    middle_pos = (upper_bound + lower_bound) // 2
+    if villains[middle_pos] < key:
+        lower_bound = middle_pos + 1
+    elif villains[middle_pos] > key:
+        upper_bound = middle_pos - 1
+    else:
+        found = True
+
+if found:
+    print(key, "found at position", middle_pos)
+else:
+    print(key, "was not found")
+
+
+# GIFTED FUNCTION
+# returns a list of words in each line
+
+import re  # regular expression
+
+def split_line(line):
+    return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
+
+my_text = "Hello, this is Aaron's phone!"
+print(split_line(my_text))
+
+
