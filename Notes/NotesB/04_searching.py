@@ -111,4 +111,10 @@ def split_line(line):
 my_text = "Hello, this is Aaron's phone!"
 print(split_line(my_text))
 
+file = open("../resources/alice_in_wonderland")
 
+for line in file:
+    line = line.strip().upper()
+    words = split_line(line)
+    for word in words:
+        print(word)
