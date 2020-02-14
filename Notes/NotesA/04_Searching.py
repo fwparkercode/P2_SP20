@@ -107,19 +107,20 @@ else:
 
 
 # Reading in Alice in Wonderland
+# a list of words in the line.
 def split_line(line):
-    # returns a list of all the words in line
+    # a list of words in the line.
     return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
-
-print(split_line("Hello, I don't know you!"))
-
 
 
 file = open("../resources/alice_in_wonderland")
 
+
 for line in file:
     line = line.strip().upper()
-    #print(line.split())
+    words = split_line(line)
+    for word in words:
+        print(word)
 
 
 
