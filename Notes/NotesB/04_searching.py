@@ -9,7 +9,7 @@ file.close()  # ends your access to the file
 # Open a file to write with 'w'
 # Overwrites entire file
 
-# Opeen a file to append with 'a'
+# Open a file to append with 'a'
 file = open('../resources/super_villains.txt', 'a')
 file.write("Mia the Horrible\n")
 file.close()
