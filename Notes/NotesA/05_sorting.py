@@ -73,8 +73,57 @@ def hello(name, time_of_day="morning"):
     print("Hello", name, "good", time_of_day)
 
 hello("Owen")  # morning is the default value
+hello("Wilson", time_of_day="afternoon")
 
 # Lambda functions (anonymous function on a single line)
 double_me = lambda x: x * 2
 # double_me is a function that returns the value x * 2
 print(double_me(5))
+
+sum_product = lambda a, b: [a + b, a * b]
+print(sum_product(3, 2))
+
+
+# Real world sorting with Python
+my_list = [random.randrange(1, 100) for x in range(100)]
+
+# sort method (changes the list in place)
+print(my_list)
+my_list.sort()  # default is to sort alphabetically or numerically small to large
+print(my_list)
+
+my_list.sort(reverse=True)
+print(my_list)
+
+# use a lambda as the key
+my_2dlist = [[random.randrange(1, 100), random.randrange(1, 100)] for x in range(100)]
+print(my_2dlist)
+
+my_2dlist.sort()
+print(my_2dlist)
+
+my_2dlist.sort(key=lambda x: x[1])  # sorts by second item
+print(my_2dlist)
+
+my_2dlist.sort(key=lambda x: sum(x))
+print(my_2dlist)
+
+my_2dlist.sort(key=lambda x: abs(x[0] - x[1]), reverse=True)
+print(my_2dlist)
+
+# sorted function (returns a new list)
+new_list = sorted(my_2dlist, key=lambda x: sum(x))
+print(new_list)  # sorted by sum
+print(my_2dlist) # sorted still by difference
+
+
+
+
+
+
+
+
+
+
+
+
