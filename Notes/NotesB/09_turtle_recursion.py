@@ -57,27 +57,26 @@ recursive_rect(800, 500, 10)
 my_screen.clear()
 
 
-def recursive_ncaa(x, y, height, depth):
+def recursive_ncaa(x, y, height, width, depth):
     if depth > 0:
         my_turtle.up()
         my_turtle.goto(x, y)
         my_turtle.down()
         my_turtle.setheading(0)
-        my_turtle.forward(50)
-        my_turtle.left(90)
+        my_turtle.left(90)  # start top bracket
         my_turtle.forward(height / 2)
         my_turtle.right(90)
-        my_turtle.forward(50)
+        my_turtle.forward(width)
         my_turtle.right(180)
-        my_turtle.forward(50)
+        my_turtle.forward(width)
         my_turtle.left(90)
         my_turtle.forward(height)
-        my_turtle.left(90)
-        my_turtle.forward(50)
-        recursive_ncaa(x + 100, y + height / 2, height / 2, depth - 1)  # top bracket
-        recursive_ncaa(x + 100, y - height / 2, height / 2, depth - 1)
+        my_turtle.left(90) # start bottom bracket
+        my_turtle.forward(width)
+        recursive_ncaa(x + width, y + height / 2, height / 2, width, depth - 1)  # top bracket
+        recursive_ncaa(x + width, y - height / 2, height / 2, width, depth - 1)
 
-recursive_ncaa(-300, 0, 200, 5)
+recursive_ncaa(-300, 0, 300, 100, 5)
 
 
 
