@@ -80,5 +80,4 @@ recursive_ncaa(-300, 0, 300, 100, 5)
 
 
 
-
 my_screen.exitonclick()
