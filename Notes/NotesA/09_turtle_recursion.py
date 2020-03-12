@@ -2,11 +2,13 @@
 import turtle
 
 my_turtle = turtle.Turtle()
-my_turtle.shape("turtle")
+my_turtle.shape("classic")
 my_turtle.speed(0)
 
 my_screen = turtle.Screen()
 my_screen.bgcolor('white')
+my_screen.setup(width=800, height=800, startx=0, starty=0)
+
 
 # draw a shape using goto
 my_turtle.fillcolor('red')
