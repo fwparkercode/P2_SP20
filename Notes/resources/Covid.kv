@@ -1,0 +1,86 @@
+<CustomLabel@Label>
+    color: 0, 0.5, 0.5, 1
+    #size_hint_x: 0.5
+    halign: 'right'
+
+<CovidLayout>:
+    orientation: "vertical"
+    id: layout
+    country_spin: country_spin
+    state_spin: state_spin
+    canvas:
+        Color:
+            rgba: 0.7, 0.7, 0.7, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: 0.1
+        BoxLayout:
+            Spinner:
+                id: country_spin
+                text: "Select Country"
+                values: root.country_list
+                on_text: root.plot_country(country_spin.text)
+        BoxLayout:
+            Spinner:
+                id: state_spin
+                text: "Select State"
+                values: root.states_list
+                on_text: root.plot_state(state_spin.text)
+
+
+        BoxLayout:
+            id: start_box
+            Spinner:
+                id: start_spin
+                text: "Start Date"
+                value: root.dates[0]
+                values: root.dates
+                on_text: root.start_change(start_spin.text)
+        BoxLayout:
+            id: end_box
+            Spinner:
+                id: end_spin
+                text: "End Date"
+                value: root.dates[0]
+                values: root.dates
+                on_text: root.end_change(end_spin.text)
+
+    BoxLayout:
+        size_hint_y: 0.1
+        BoxLayout:
+            padding: 1, 1, 1, 1
+            CustomLabel:
+                text: "Cases"
+            CheckBox:
+                id: cases_check
+                active: True
+                color: [0, 0.5, 0.5, 1]
+                on_active: root.cases_toggle(cases_check.active)
+        BoxLayout:
+            padding: 1, 1, 1, 1
+            CustomLabel:
+                text: "Deaths"
+            CheckBox:
+                id: deaths_check
+                active: True
+                color: [0, 0.5, 0.5, 1]
+                on_active: root.deaths_toggle(deaths_check.active)
+
+        BoxLayout:
+            padding: 1, 1, 1, 1
+            CustomLabel:
+                text: "Recovered"
+            CheckBox:
+                id: recovered_check
+                active: True
+                color: [0, 0.5, 0.5, 1]
+                on_active: root.recovered_toggle(recovered_check.active)
+
+
+
+
+
+
