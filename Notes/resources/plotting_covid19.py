@@ -120,7 +120,7 @@ class CovidLayout(BoxLayout):
         self.use_country = True
         self.country = country
         self.make_plot()
-        self.state_spin.text = "Select State"
+        #self.state_spin.text = "Select State"
 
     def plot_state(self, state):
         print(state)

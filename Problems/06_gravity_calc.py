@@ -1,6 +1,6 @@
 # Universal Gravity Calculator (12pts)
 # In physics, the force of gravity between two objects can be calculated using the equation:
-# F = G * (m1 * m2) / r**2
+# F = G * (m1 * m2) / r ** 2
 # F is the force of gravity in Newtons
 # G is the universal gravity constant (6.67e-11)
 # m1 is the mass of first object in kg
