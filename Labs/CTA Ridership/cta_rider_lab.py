@@ -22,3 +22,21 @@ with open("CTA_-_Ridership_-_Annual_Boarding_Totals (1).csv") as f:
     data = list(cr)
 
 print(data)
+
+
+# pop header
+# get last 10 years (years)
+# get last 10 years bus
+# get last 10 years rail
+# get last 10 years total
+
+# plot bus
+# plot rail
+# plot total
+
+# axis
+# labels
+# title
+# legend (label plots)
+
+# show plot
