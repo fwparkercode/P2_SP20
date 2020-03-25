@@ -14,6 +14,10 @@ print(header)
 homicide_100k = []
 firearms_100 = []
 names = []
+similar = ["Canada", "Norway", "Australia", "Iceland", "Finland", "Denmark", "Sweden", "Germany", "Japan", "Taiwan", "Singapore", "Netherlands", "Italy", "Spain", "France", "England and Wales", "United States", "South Korea"]
+
+data = [x for x in data if x[0] in similar]
+
 
 for country in data:
     try:
@@ -29,4 +33,17 @@ for country in data:
 
 print(names)
 
-plt.figure
+plt.figure("Firearm Plot", figsize=(10, 6))
+plt.scatter(firearms_100, homicide_100k)
+
+plt.ylabel("homicides per 100k population")
+plt.xlabel("firearms per 100 people")
+plt.title("Homicides vs. Gun Ownership")
+
+# plt.annotate("My text", xy=(50, 50))
+
+for i in range(len(names)):
+    plt.annotate(names[i], xy=(firearms_100[i], homicide_100k[i]))
+
+
+plt.show()
