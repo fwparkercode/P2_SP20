@@ -26,9 +26,9 @@ def get_data(url):
     return header, my_list
 
 
-confirmed_headers, confirmed = get_data("https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_19-covid-Confirmed.csv&filename=time_series_2019-ncov-Confirmed.csv")
+confirmed_headers, confirmed = get_data("https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv")
 
-death_headers, deaths = get_data("https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_19-covid-Deaths.csv&filename=time_series_2019-ncov-Deaths.csv")
+death_headers, deaths = get_data("https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_deaths_global.csv&filename=time_series_covid19_deaths_global.csv")
 
 recovered_headers, recovered = get_data("https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_19-covid-Recovered.csv&filename=time_series_2019-ncov-Recovered.csv")
 
@@ -69,9 +69,9 @@ class CovidLayout(BoxLayout):
         self.plot_deaths = True
         self.plot_confirmed = True
         self.plot_recovered = True
-        self.use_country = False  # do you want to use country name.  Default is a US State
+        self.use_country = True  # do you want to use country name.  Default is a US State
         self.country = "US"
-        self.my_state = "Illinois"
+        self.my_state = ""
         self.start_date = "3/1/20"
         self.width = 10
         self.height = 8
@@ -205,12 +205,16 @@ class CovidLayout(BoxLayout):
                          marker=".")
 
         # recovered
+
+        '''
         if self.plot_recovered:
             if self.use_country:
                 plt.plot(x_numbers, [int(x) for x in recovered[self.country_index][self.date_index:self.date_index_end + 1]], label="Recovered", color='green', marker=".")
             else:
                 plt.plot(x_numbers, [int(x) for x in recovered[self.state_index][self.date_index:self.date_index_end + 1]], label="Recovered", color='green', marker=".")
+        '''
         plt.xticks(x_numbers, confirmed_headers[self.date_index:self.date_index_end], rotation=90, fontsize=7)
+
         plt.legend(fontsize="large", shadow=True)
         self.plot_canvas.draw()
 
