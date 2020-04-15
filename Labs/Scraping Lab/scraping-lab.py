@@ -1,4 +1,5 @@
-# SCRAPING PROBLEMS (15pts)
+# SCRAPING PROBLEMS
+# Twitter Scraping (15pts)
 # Go to your favorite follow on Twitter.  (not someone who posts explicit materials please)
 # Inspect the twitter feed in Chrome.
 # You'll notice that the tweets are stored in a ordered list <ol></ol>, and individual tweets are contained as list items <li></li>.
