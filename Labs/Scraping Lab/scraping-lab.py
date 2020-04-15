@@ -7,6 +7,8 @@
 # Print the tweets in a nicely formatted way.
 # Have fun.  Again, nothing explicit.
 
+#  print("{} {}!".format("Hello", "World"))
+
 
 # Weather Scraping (15pts)
 # Below is a link to a 10-day weather forecast at weather.com
