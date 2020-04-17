@@ -1,6 +1,5 @@
 
 # There was some difficulty scraping a tweet.
-# Here is some code to get you started
 # After a closer look, you can't do it from the dynamic webpage any longer
 # I will give you some separate code to show you how to scrape a dynamic page.
 # Feel free to skip if you don't want to try it.  (no penalty)
