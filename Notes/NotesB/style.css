@@ -1,0 +1,21 @@
+/*Comment in CSS*/
+
+p {
+    background-color: lightblue;
+}
+
+ol {
+    color: red;
+}
+
+li {
+    border: 2px solid black;
+}
+
+#para1 {
+    color: orange;
+}
+
+.highlight{
+    background-color: yellow;
+}
