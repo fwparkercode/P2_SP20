@@ -8,6 +8,8 @@ plotted in matplotlib
 import requests
 import csv
 import matplotlib.pyplot as plt
+import numpy as np
+from scipy.optimize import curve_fit
 
 # kivy imports
 from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
@@ -32,7 +34,7 @@ death_headers, deaths = get_data("https://data.humdata.org/hxlproxy/api/data-pre
 
 recovered_headers, recovered = get_data("https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_19-covid-Recovered.csv&filename=time_series_2019-ncov-Recovered.csv")
 
-
+dates_only = confirmed_headers[4:]
 
 
 
@@ -76,6 +78,7 @@ class CovidLayout(BoxLayout):
         self.width = 10
         self.height = 8
         self.my_name = self.my_state
+        self.scale_type = "linear"
 
         self.countries = [x[1] for x in self.confirmed]
         self.country_list = [x[1] for x in self.confirmed if x[0] == ""]
@@ -85,8 +88,8 @@ class CovidLayout(BoxLayout):
         self.states_list = [x for x in self.states if x != ""]
         self.states_list.sort()
         self.dates = confirmed_headers[4:]
-        self.date_index = 4
-        self.date_index_end = len(confirmed_headers)
+        self.date_index = 0
+        self.date_index_end = len(dates_only)
         self.fig = plt.figure("COVID Graph 1", figsize=(self.width, self.height), tight_layout=True)
         self.ax = self.fig.gca()
         self.ax.grid(color='lightgray')
@@ -138,6 +141,13 @@ class CovidLayout(BoxLayout):
     def end_change(self, end):
         self.end_date = end
         self.date_index_end = self.dates.index(end)
+        self.make_plot()
+
+    def log_scale(self, log_on):
+        if log_on:
+            self.scale_type = "log"
+        else:
+            self.scale_type = "linear"
         self.make_plot()
 
     def make_plot(self):
@@ -213,9 +223,27 @@ class CovidLayout(BoxLayout):
             else:
                 plt.plot(x_numbers, [int(x) for x in recovered[self.state_index][self.date_index:self.date_index_end + 1]], label="Recovered", color='green', marker=".")
         '''
-        plt.xticks(x_numbers, confirmed_headers[self.date_index:self.date_index_end], rotation=90, fontsize=7)
+        plt.xticks(x_numbers, dates_only[self.date_index:self.date_index_end], rotation=90, fontsize=7)
 
         plt.legend(fontsize="large", shadow=True)
+        plt.yscale(self.scale_type)
+        # best fit add
+
+
+
+
+        # country_data = [int(x) for x in confirmed[self.country_index][self.date_index: self.date_index_end + 1]]
+        #
+        # print(country_data)
+        # z = np.polyfit(x_numbers, country_data, 3)
+        # p = np.poly1d(z)
+        # p(1)
+        #
+        #
+        # xp = np.linspace(self.date_index, self.date_index_end, self.date_index_end - self.date_index)
+        # if self.scale_type == "log":
+        #     plt.plot(x_numbers, [int(x) for x in confirmed[self.state_index][self.date_index:self.date_index_end + 1]], ".", xp, p(xp))
+
         self.plot_canvas.draw()
 
 

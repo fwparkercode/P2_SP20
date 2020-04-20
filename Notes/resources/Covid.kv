@@ -7,7 +7,7 @@
     orientation: "vertical"
     id: layout
     country_spin: country_spin
-    state_spin: state_spin
+    #state_spin: state_spin
     canvas:
         Color:
             rgba: 0.7, 0.7, 0.7, 1
@@ -23,13 +23,12 @@
                 text: "Select Country"
                 values: root.country_list
                 on_text: root.plot_country(country_spin.text)
-        BoxLayout:
-            Spinner:
-                id: state_spin
-                text: "Select State"
-                values: root.states_list
-                on_text: root.plot_state(state_spin.text)
-
+#        BoxLayout:
+#            Spinner:
+#                id: state_spin
+#                text: "Select State"
+#                values: root.states_list
+#                on_text: root.plot_state(state_spin.text)
 
         BoxLayout:
             id: start_box
@@ -68,7 +67,15 @@
                 active: True
                 color: [0, 0.5, 0.5, 1]
                 on_active: root.deaths_toggle(deaths_check.active)
-
+        BoxLayout:
+            padding: 1, 1, 1, 1
+            CustomLabel:
+                text: "Log Scale"
+            CheckBox:
+                id: log_check
+                active: True
+                color: [0, 0.5, 0.5, 1]
+                on_active: root.log_scale(log_check.active)
         BoxLayout:
             padding: 1, 1, 1, 1
             CustomLabel:
