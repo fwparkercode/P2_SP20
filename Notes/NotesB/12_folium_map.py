@@ -12,7 +12,7 @@ lats = [float(x[-3]) for x in data]
 longs = [float(x[-2]) for x in data]
 names = [x[2] for x in data]
 
-art_map = folium.Map(location=[41.880443, -87.644107], zoom_start=11)
+art_map = folium.Map(location=[41.880443, -87.644107], zoom_start=11, tiles='Stamen')
 
 # FWP 41.923064, -87.638504
 # Placing a marker
