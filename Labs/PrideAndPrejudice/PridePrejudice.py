@@ -12,15 +12,27 @@ A common Python pattern to count objects, produce histograms, or update stats is
 
 
 # PSEUDO CODE
-# Get text from https://www.gutenberg.org/files/1342/1342-h/1342-h.htm - Use requests library.
+# Get text from http://www.gutenberg.org/files/1342/1342-0.txt - Use requests library.
 # Split the transcript into words - Use split and strip methods and store results in a list.
 # Create a dictionary object to store the word counts
-# Iterate through the list/text of Macbeth
+# Iterate through the list/text of Pride and Prejudice
 # Update word counts on your dict (10pts)
 # Sort words by counts in descending order (5pts)
 # Create Bar Graph (5pts)
 # Include descriptive titles and labels (5pts)
 
+import requests
+import matplotlib.pyplot as plt
+
+url = "http://www.gutenberg.org/files/1342/1342-0.txt"
+pride_prejudice = requests.get(url).text
+
+print(pride_prejudice[:1000])
+
+wordlist = pride_prejudice.split()
+wordlist = [x.upper().strip(' ?.:;!\\<>{}\n\t') for x in wordlist]
+
+print(wordlist[:1000])
 
 # CHALLENGE (OPTIONAL)
 # Here is a list of the 1000 most common words in English: https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt
