@@ -5,6 +5,7 @@
 # sets (not generally used often)
 # a unique list of items (no repeats)
 # uses {} instead of []
+import random
 
 my_set = {1, 2, 3, 4, 4, 5}
 print(my_set)
@@ -74,6 +75,26 @@ print(new_dict)
 print(the_office.pop('genre'))
 print(the_office)
 
+
+# Using a dictionary to track (database like)
+flips = [random.choice(['heads', 'tails']) for x in range(100)]
+print(flips)
+
+head_tails = {}
+
+for flip in flips:
+    if flip == 'heads':
+        if flip in head_tails:
+            head_tails['heads'] += 1
+        else:
+            head_tails['heads'] = 1
+    if flip == 'tails':
+        if flip in head_tails:
+            head_tails['tails'] += 1
+        else:
+            head_tails['tails'] = 1
+
+print(head_tails)
 
 
 

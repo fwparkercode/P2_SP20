@@ -1,6 +1,6 @@
 import random
-
 import pandas as pd
+#pd.set_option('display.max_columns', None)
 
 # lists > dicts > series/dataframes
 
@@ -21,3 +21,34 @@ d = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 cols = ["A", "B", "C"]
 df2 = pd.DataFrame(data=d, columns=cols)
 print(df2)
+
+# make a df from a csv
+df3 = pd.read_csv('Beach_Weather_Stations_-_Automated_Sensors.csv')
+print(type(df3))
+
+# handy methods
+print(df3.head())  # first 5 rows in df
+print(df3.tail(10))
+print(df3.info())
+print(df3.describe())  # basic stats
+
+# useful attributes
+print(df3.index)  # these are the rows (data key)
+print(df3.columns)  # index object
+print(list(df3.columns))
+print(df3.dtypes)  # data types
+
+# simple selection using []
+wind_speeds = df3['Wind Speed']  # index kinda like dictionary
+print(type(wind_speeds))
+
+
+# we can also slice the df using .iloc[]
+first5_stationnames = df3.iloc[:5, 0]  # rows, cols
+print(first5_stationnames)
+
+first_fifth_temps = df3.iloc[[0, 4], [2, 3]]
+print(first_fifth_temps)
+print(type(first_fifth_temps))
+
+
