@@ -52,3 +52,34 @@ print(first_fifth_temps)
 print(type(first_fifth_temps))
 
 
+
+# World Cup data
+import pandas as pd
+x = 5
+x  # in ipython/console, this automatically prints
+
+df = pd.read_csv('/Users/alee/PycharmProjects/P2_SP20/Notes/NotesB/world_cup_matches.csv')  # use full path when working in console
+
+
+# iloc (only useful for index number)
+df.iloc[3:6]  # look at 3, 4, 5 matches
+df.iloc[3:6, [4, 7]]   # cols 4 and 7 for index/rows 3to5
+
+# loc
+df.loc[3:6, ['Home Team Name', 'Away Team Name']] # use col names to slice
+
+# all games from 1950
+df_1950 = df.loc[df['Year'] == 1950]
+
+# all games from 1950 Group 3
+df_1950.loc[df['Stage'] == 'Group 3']
+
+# alternately we could do both filters at once
+df.loc[(df['Year'] == 1950) & (df['Stage'] == 'Group 3')]  # loc[(cond1) & (cond2)]
+
+
+# Number of home games played by Netherlands
+df.loc[df['Home Team Name'] == 'Netherlands'].count()
+
+# All games by Netherlands
+df.loc[(df['Home Team Name'] == "Netherlands") | (df['Away Team Name'] == "Netherlands")]
