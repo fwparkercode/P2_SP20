@@ -1,0 +1,314 @@
+# Go to gist at https://gist.github.com/c4c0a7f79455d53b13b221b42f2cc16c
+
+
+
+
+/usr/local/bin/python3.7 "/Users/alee/Library/Application Support/JetBrains/Toolbox/apps/PyCharm-C/ch-0/192.6817.19/PyCharm CE.app/Contents/helpers/pydev/pydevconsole.py" --mode=client --port=50415
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['/Users/alee/PycharmProjects/P2_SP20'])
+Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.11.1 -- An enhanced Interactive Python. Type '?' for help.
+PyDev console: using IPython 7.11.1
+Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
+[Clang 6.0 (clang-600.0.57)] on darwin
+x = 5
+print(x)
+5
+x
+Out[4]: 5
+import pandas as pd
+df = pd.read_csv('world_cup_matches.csv')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/IPython/core/interactiveshell.py", line 3319, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-6-639c8abed91a>", line 1, in <module>
+    df = pd.read_csv('world_cup_matches.csv')
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/io/parsers.py", line 676, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/io/parsers.py", line 448, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/io/parsers.py", line 880, in __init__
+    self._make_engine(self.engine)
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/io/parsers.py", line 1114, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/io/parsers.py", line 1891, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 374, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] File world_cup_matches.csv does not exist: 'world_cup_matches.csv'
+df = pd.read_csv('/Users/alee/PycharmProjects/P2_SP20/Notes/NotesA/world_cup_matches.csv')
+df.head()
+Out[8]:
+   Year              Datetime  ... Home Team Initials Away Team Initials
+0  1930  13 Jul 1930 - 15:00   ...                FRA                MEX
+1  1930  13 Jul 1930 - 15:00   ...                USA                BEL
+2  1930  14 Jul 1930 - 12:45   ...                YUG                BRA
+3  1930  14 Jul 1930 - 14:50   ...                ROU                PER
+4  1930  15 Jul 1930 - 16:00   ...                ARG                FRA
+[5 rows x 20 columns]
+Backend MacOSX is interactive backend. Turning interactive mode on.
+df.columns
+Out[9]:
+Index(['Year', 'Datetime', 'Stage', 'Stadium', 'City', 'Home Team Name',
+       'Home Team Goals', 'Away Team Goals', 'Away Team Name',
+       'Win conditions', 'Attendance', 'Half-time Home Goals',
+       'Half-time Away Goals', 'Referee', 'Assistant 1', 'Assistant 2',
+       'RoundID', 'MatchID', 'Home Team Initials', 'Away Team Initials'],
+      dtype='object')
+df.tail()
+Out[10]:
+     Year              Datetime  ... Home Team Initials Away Team Initials
+847  2014  05 Jul 2014 - 17:00   ...                NED                CRC
+848  2014  08 Jul 2014 - 17:00   ...                BRA                GER
+849  2014  09 Jul 2014 - 17:00   ...                NED                ARG
+850  2014  12 Jul 2014 - 17:00   ...                BRA                NED
+851  2014  13 Jul 2014 - 16:00   ...                GER                ARG
+[5 rows x 20 columns]
+df.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 852 entries, 0 to 851
+Data columns (total 20 columns):
+ #   Column                Non-Null Count  Dtype
+---  ------                --------------  -----
+ 0   Year                  852 non-null    int64
+ 1   Datetime              852 non-null    object
+ 2   Stage                 852 non-null    object
+ 3   Stadium               852 non-null    object
+ 4   City                  852 non-null    object
+ 5   Home Team Name        852 non-null    object
+ 6   Home Team Goals       852 non-null    int64
+ 7   Away Team Goals       852 non-null    int64
+ 8   Away Team Name        852 non-null    object
+ 9   Win conditions        852 non-null    object
+ 10  Attendance            850 non-null    float64
+ 11  Half-time Home Goals  852 non-null    int64
+ 12  Half-time Away Goals  852 non-null    int64
+ 13  Referee               852 non-null    object
+ 14  Assistant 1           852 non-null    object
+ 15  Assistant 2           852 non-null    object
+ 16  RoundID               852 non-null    int64
+ 17  MatchID               852 non-null    int64
+ 18  Home Team Initials    852 non-null    object
+ 19  Away Team Initials    852 non-null    object
+dtypes: float64(1), int64(7), object(12)
+memory usage: 133.2+ KB
+df.shape
+Out[12]: (852, 20)
+df.iloc[3:6]
+Out[13]:
+   Year              Datetime  ... Home Team Initials Away Team Initials
+3  1930  14 Jul 1930 - 14:50   ...                ROU                PER
+4  1930  15 Jul 1930 - 16:00   ...                ARG                FRA
+5  1930  16 Jul 1930 - 14:45   ...                CHI                MEX
+[3 rows x 20 columns]
+type(df.iloc[3:6])
+Out[14]: pandas.core.frame.DataFrame
+# match 3 to 5 only team info
+df.loc[3:6, ['Home Team Name', 'Away Team Name']]
+Out[16]:
+  Home Team Name Away Team Name
+3        Romania           Peru
+4      Argentina         France
+5          Chile         Mexico
+6     Yugoslavia        Bolivia
+# all info for games playe in 1950 for group 3
+df.loc[df['Year'] == 1950]
+Out[18]:
+    Year              Datetime  ... Home Team Initials Away Team Initials
+53  1950  24 Jun 1950 - 15:00   ...                BRA                MEX
+54  1950  25 Jun 1950 - 15:00   ...                ENG                CHI
+55  1950  25 Jun 1950 - 15:00   ...                ESP                USA
+56  1950  25 Jun 1950 - 15:00   ...                SWE                ITA
+57  1950  25 Jun 1950 - 15:00   ...                YUG                SUI
+58  1950  28 Jun 1950 - 15:00   ...                BRA                SUI
+59  1950  28 Jun 1950 - 15:00   ...                YUG                MEX
+60  1950  29 Jun 1950 - 15:00   ...                ESP                CHI
+61  1950  29 Jun 1950 - 15:30   ...                SWE                PAR
+62  1950  29 Jun 1950 - 15:00   ...                USA                ENG
+63  1950  01 Jul 1950 - 15:00   ...                BRA                YUG
+64  1950  02 Jul 1950 - 15:00   ...                ESP                ENG
+65  1950  02 Jul 1950 - 15:00   ...                ITA                PAR
+66  1950  02 Jul 1950 - 15:00   ...                URU                BOL
+67  1950  02 Jul 1950 - 15:40   ...                SUI                MEX
+68  1950  02 Jul 1950 - 15:00   ...                CHI                USA
+69  1950  09 Jul 1950 - 15:00   ...                URU                ESP
+70  1950  09 Jul 1950 - 15:00   ...                BRA                SWE
+71  1950  13 Jul 1950 - 15:00   ...                BRA                ESP
+72  1950  13 Jul 1950 - 15:00   ...                URU                SWE
+73  1950  16 Jul 1950 - 15:00   ...                SWE                ESP
+74  1950  16 Jul 1950 - 15:00   ...                URU                BRA
+[22 rows x 20 columns]
+df.loc[df['Year'] == 1950 & df['Stage'] == 'Group 3']   # and &, or |
+Traceback (most recent call last):
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/core/ops/array_ops.py", line 274, in na_logical_op
+    result = op(x, y)
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/core/ops/roperator.py", line 52, in rand_
+    return operator.and_(right, left)
+TypeError: unsupported operand type(s) for &: 'int' and 'str'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/core/ops/array_ops.py", line 288, in na_logical_op
+    result = libops.scalar_binop(x, y, op)
+  File "pandas/_libs/ops.pyx", line 199, in pandas._libs.ops.scalar_binop
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/core/ops/roperator.py", line 52, in rand_
+    return operator.and_(right, left)
+TypeError: unsupported operand type(s) for &: 'bool' and 'str'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/IPython/core/interactiveshell.py", line 3319, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-19-021490f13f59>", line 1, in <module>
+    df.loc[df['Year'] == 1950 & df['Stage'] == 'Group 3']   # and &, or |
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/core/ops/common.py", line 64, in new_method
+    return method(self, other)
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/core/ops/__init__.py", line 552, in wrapper
+    res_values = logical_op(lvalues, rvalues, op)
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/core/ops/array_ops.py", line 366, in logical_op
+    res_values = na_logical_op(lvalues, rvalues, op)
+  File "/Users/alee/Library/Python/3.7/lib/python/site-packages/pandas/core/ops/array_ops.py", line 298, in na_logical_op
+    f"Cannot perform '{op.__name__}' with a dtyped [{x.dtype}] array "
+TypeError: Cannot perform 'rand_' with a dtyped [object] array and scalar of type [bool]
+df.loc[(df['Year'] == 1950) & (df['Stage'] == 'Group 3')]   # and &, or |
+Out[20]:
+    Year              Datetime  ... Home Team Initials Away Team Initials
+56  1950  25 Jun 1950 - 15:00   ...                SWE                ITA
+61  1950  29 Jun 1950 - 15:30   ...                SWE                PAR
+65  1950  02 Jul 1950 - 15:00   ...                ITA                PAR
+[3 rows x 20 columns]
+df.loc[(df['Year'] == 2018) & (df['Stage'] == 'Group 3')]   # and &, or |
+Out[21]:
+Empty DataFrame
+Columns: [Year, Datetime, Stage, Stadium, City, Home Team Name, Home Team Goals, Away Team Goals, Away Team Name, Win conditions, Attendance, Half-time Home Goals, Half-time Away Goals, Referee, Assistant 1, Assistant 2, RoundID, MatchID, Home Team Initials, Away Team Initials]
+Index: []
+df.loc[(df['Year'] == 2018) & (df['Stage'] == 'Group 3')]   # and &, or |
+Out[22]:
+Empty DataFrame
+Columns: [Year, Datetime, Stage, Stadium, City, Home Team Name, Home Team Goals, Away Team Goals, Away Team Name, Win conditions, Attendance, Half-time Home Goals, Half-time Away Goals, Referee, Assistant 1, Assistant 2, RoundID, MatchID, Home Team Initials, Away Team Initials]
+Index: []
+df.loc[(df['Year'] == 2014) & (df['Stage'] == 'Group 3')]   # and &, or |
+Out[23]:
+Empty DataFrame
+Columns: [Year, Datetime, Stage, Stadium, City, Home Team Name, Home Team Goals, Away Team Goals, Away Team Name, Win conditions, Attendance, Half-time Home Goals, Half-time Away Goals, Referee, Assistant 1, Assistant 2, RoundID, MatchID, Home Team Initials, Away Team Initials]
+Index: []
+df.loc[(df['Year'] == 1950) & (df['Stage'] == 'Group 3')]   # and &, or |
+Out[24]:
+    Year              Datetime  ... Home Team Initials Away Team Initials
+56  1950  25 Jun 1950 - 15:00   ...                SWE                ITA
+61  1950  29 Jun 1950 - 15:30   ...                SWE                PAR
+65  1950  02 Jul 1950 - 15:00   ...                ITA                PAR
+[3 rows x 20 columns]
+df.loc[(df['Year'] == 2014) & (df['Stage'] == 'Group 3')]   # and &, or |
+Out[25]:
+Empty DataFrame
+Columns: [Year, Datetime, Stage, Stadium, City, Home Team Name, Home Team Goals, Away Team Goals, Away Team Name, Win conditions, Attendance, Half-time Home Goals, Half-time Away Goals, Referee, Assistant 1, Assistant 2, RoundID, MatchID, Home Team Initials, Away Team Initials]
+Index: []
+df.loc[(df['Year'] == 2014) & (df['Stage'] == 'Group A')]   # and &, or |
+Out[26]:
+     Year              Datetime  ... Home Team Initials Away Team Initials
+772  2014  12 Jun 2014 - 17:00   ...                BRA                CRO
+773  2014  13 Jun 2014 - 13:00   ...                MEX                CMR
+787  2014  17 Jun 2014 - 16:00   ...                BRA                MEX
+791  2014  18 Jun 2014 - 18:00   ...                CMR                CRO
+806  2014  23 Jun 2014 - 17:00   ...                CMR                BRA
+807  2014  23 Jun 2014 - 17:00   ...                CRO                MEX
+[6 rows x 20 columns]
+# find the number of games played by Netherlands in WC history
+df.loc[(df['Away Team Name'] == "Netherlands") & (df['Home Team Name'] == "Netherlands")]
+Out[28]:
+Empty DataFrame
+Columns: [Year, Datetime, Stage, Stadium, City, Home Team Name, Home Team Goals, Away Team Goals, Away Team Name, Win conditions, Attendance, Half-time Home Goals, Half-time Away Goals, Referee, Assistant 1, Assistant 2, RoundID, MatchID, Home Team Initials, Away Team Initials]
+Index: []
+df.loc[(df['Away Team Name'] == "Netherlands") | (df['Home Team Name'] == "Netherlands")]
+Out[29]:
+     Year               Datetime  ... Home Team Initials Away Team Initials
+20   1934   27 May 1934 - 16:30   ...                SUI                NED
+41   1938   05 Jun 1938 - 18:30   ...                TCH                NED
+236  1974   15 Jun 1974 - 16:00   ...                URU                NED
+244  1974   19 Jun 1974 - 19:30   ...                NED                SWE
+252  1974   23 Jun 1974 - 16:00   ...                BUL                NED
+258  1974   26 Jun 1974 - 19:30   ...                NED                ARG
+262  1974   30 Jun 1974 - 16:00   ...                GDR                NED
+265  1974   03 Jul 1974 - 19:30   ...                NED                BRA
+269  1974  07 July 1974 - 16:00   ...                NED                FRG
+277  1978   03 Jun 1978 - 16:45   ...                NED                IRN
+285  1978   07 Jun 1978 - 16:45   ...                NED                PER
+293  1978   11 Jun 1978 - 16:45   ...                SCO                NED
+295  1978   14 Jun 1978 - 13:45   ...                NED                AUT
+300  1978   18 Jun 1978 - 16:45   ...                FRG                NED
+302  1978   21 Jun 1978 - 13:45   ...                NED                ITA
+307  1978   25 Jun 1978 - 15:00   ...                ARG                NED
+422  1990   12 Jun 1990 - 21:00   ...                NED                EGY
+432  1990   16 Jun 1990 - 21:00   ...                ENG                NED
+446  1990   21 Jun 1990 - 21:00   ...                IRL                NED
+451  1990   24 Jun 1990 - 21:00   ...                FRG                NED
+472  1994   20 Jun 1994 - 19:30   ...                NED                KSA
+484  1994   25 Jun 1994 - 12:30   ...                BEL                NED
+496  1994   29 Jun 1994 - 12:30   ...                MAR                NED
+504  1994   04 Jul 1994 - 12:00   ...                NED                IRL
+509  1994   09 Jul 1994 - 14:30   ...                NED                BRA
+525  1998   13 Jun 1998 - 21:00   ...                NED                BEL
+542  1998   20 Jun 1998 - 21:00   ...                NED                KOR
+557  1998   25 Jun 1998 - 16:00   ...                NED                MEX
+569  1998   29 Jun 1998 - 21:00   ...                NED                YUG
+574  1998   04 Jul 1998 - 16:30   ...                NED                ARG
+576  1998   07 Jul 1998 - 21:00   ...                BRA                NED
+578  1998   11 Jul 1998 - 21:00   ...                NED                CRO
+649  2006   11 Jun 2006 - 15:00   ...                SCG                NED
+665  2006   16 Jun 2006 - 18:00   ...                NED                CIV
+682  2006   21 Jun 2006 - 21:00   ...                NED                ARG
+695  2006   25 Jun 2006 - 21:00   ...                POR                NED
+716  2010   14 Jun 2010 - 13:30   ...                NED                DEN
+731  2010   19 Jun 2010 - 13:30   ...                NED                JPN
+751  2010   24 Jun 2010 - 20:30   ...                CMR                NED
+760  2010   28 Jun 2010 - 16:00   ...                NED                SVK
+764  2010   02 Jul 2010 - 16:00   ...                NED                BRA
+768  2010   06 Jul 2010 - 20:30   ...                URU                NED
+771  2010   11 Jul 2010 - 20:30   ...                NED                ESP
+774  2014   13 Jun 2014 - 16:00   ...                ESP                NED
+789  2014   18 Jun 2014 - 13:00   ...                AUS                NED
+805  2014   23 Jun 2014 - 13:00   ...                NED                CHI
+827  2014   12 Jul 2014 - 17:00   ...                BRA                NED
+829  2014   09 Jul 2014 - 17:00   ...                NED                ARG
+830  2014   05 Jul 2014 - 17:00   ...                NED                CRC
+832  2014   29 Jun 2014 - 13:00   ...                NED                MEX
+838  2014   29 Jun 2014 - 13:00   ...                NED                MEX
+847  2014   05 Jul 2014 - 17:00   ...                NED                CRC
+849  2014   09 Jul 2014 - 17:00   ...                NED                ARG
+850  2014   12 Jul 2014 - 17:00   ...                BRA                NED
+[54 rows x 20 columns]
+df.loc[(df['Away Team Name'] == "Netherlands") | (df['Home Team Name'] == "Netherlands")].count()
+Out[30]:
+Year                    54
+Datetime                54
+Stage                   54
+Stadium                 54
+City                    54
+Home Team Name          54
+Home Team Goals         54
+Away Team Goals         54
+Away Team Name          54
+Win conditions          54
+Attendance              54
+Half-time Home Goals    54
+Half-time Away Goals    54
+Referee                 54
+Assistant 1             54
+Assistant 2             54
+RoundID                 54
+MatchID                 54
+Home Team Initials      54
+Away Team Initials      54
+dtype: int64
+df.describe()
+Out[31]:
+              Year  Home Team Goals  ...       RoundID       MatchID
+count   852.000000       852.000000  ...  8.520000e+02  8.520000e+02
+mean   1985.089202         1.811033  ...  1.066177e+07  6.134687e+07
+std      22.448825         1.610255  ...  2.729613e+07  1.110572e+08
+min    1930.000000         0.000000  ...  2.010000e+02  2.500000e+01
+25%    1970.000000         1.000000  ...  2.620000e+02  1.188750e+03
+50%    1990.000000         2.000000  ...  3.370000e+02  2.191000e+03
+75%    2002.000000         3.000000  ...  2.497220e+05  4.395006e+07
+max    2014.000000        10.000000  ...  9.741060e+07  3.001865e+08
+[8 rows x 8 columns]
