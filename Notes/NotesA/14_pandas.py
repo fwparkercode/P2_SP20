@@ -90,6 +90,46 @@ df.loc[df['Home Team Name'] == 'Netherlands'].count()
 df.loc[(df['Home Team Name'] == "Netherlands") | (df['Away Team Name'] == "Netherlands")]
 
 
+# NEXT CLASS
+# how many games did US play in 2014
+df.loc[(df['Home Team Name'] == "USA") | (df["Away Team Name"] == "USA")]
+df.loc[(df['Home Team Name'] == "USA") | (df["Away Team Name"] == "USA") & (df['Year'] == 2014)]
+
+
+# Number of countries that were in 1986 world cup
+df.loc[df['Year'] == 1986]
+type(df.loc[df['Year'] == 1986])
+df.loc[df['Year'] == 1986]['Home Team Name']
+type(df.loc[df['Year'] == 1986]['Home Team Name'])
+df.loc[df['Year'] == 1986]['Home Team Name'].unique()
+list(df.loc[df['Year'] == 1986]['Home Team Name'].unique())
+
+# Number of matches with 7 or more goals in WC history
+df.columns
+df.loc[(df['Away Team Goals'] + df['Home Team Goals']) >= 7]
+df.loc[(df['Away Team Goals'] + df['Home Team Goals']) >= 7].count()
+
+# can build a new column as alternative
+df['Total Goals'] = df['Home Team Goals'] + df['Away Team Goals']
+df["Total Goals"]
+df["Total Goals"].max()
+df["Total Goals"].mean()
+df["Total Goals"].min()
+df["Total Goals"].std()
+df.loc[df['Total Goals'] >= 7]
+
+# make a column for total half-time goals
+df.columns
+df["Total Half-Time Goals"] = df["Half-time Home Goals"] + df["Half-time Away Goals"]
+df['Total Half-Time Goals']
+max_half = df['Total Half-Time Goals'].max()
+
+df.loc[df['Total Half-Time Goals'] == max_half]
+
+
+
+
+
 
 
 
