@@ -1,0 +1,82 @@
+Using Pandas lab
+
+You may work out of the editor if you need, but it is recommended to work in the console.
+For each question:
+You are given three possible answers.
+Delete the two that are incorrect.
+
+No other code required for this lab!!!
+They get tougher as you go.  If you get stuck, just guess and skip it.
+
+
+BEFORE WE GO FURTHER...
+import pandas as pd
+df = pd.read_csv('lego_sets.csv')
+df = df.loc[df['country'] == 'US']
+
+The lines above will import our dataframe and eliminate all the foreign sets ($USD only).
+
+NOW, THE QUESTIONS (watch out for trademark symbols)
+
+How many Star Wars lego sets are avilable (use theme_name)?
+77
+93
+111
+
+What is the price most expensive Star Wars lego set (use list_price)?
+799.99
+849.99
+1119.99
+
+What is the name of the most expensive Star Wars lego set (use set_name)?
+Death Star
+Millennium Falcon
+Imperial Cruiser
+
+What is the highest piece_count for any lego set?
+7541
+10113
+15782
+
+What is the set name with the highest piece_count?
+Death Star
+Millennium Falcon
+Imperial Cruiser
+
+My daughter really wants a lego 'DC Super Hero Girls' set.  I only have 25 dollars to spend.  What's the name of the most expensive one I can buy?
+Harley Quinn™ to the rescue
+Bumblebee™ Helicopter
+Batgirl™ Batjet Chase,
+
+
+What is the name of the worst reviewed lego set ever?
+Tactical Batman™ & Superman™
+Bane™ Toxic Truck Attack
+First Order AT-ST™
+
+
+Are there more Minecraft or Marvel sets?
+Minecraft
+Marvel
+
+I'm a lego collector.  I went crazy and bought every single set.  How much did I spend?
+34424.99
+38605.33
+44109.66
+
+So now I bought all the sets, how many lego pieces do I have?
+178882
+344624
+441096
+
+Out of all of the products with a 'star_rating' of 5.0, which one has the most reviews?
+Flying Jelly Sub
+Old Fishing Store
+Volcano Heavy-lift Helicopter
+
+
+
+
+
+
+
