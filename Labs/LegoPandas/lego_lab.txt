@@ -1,24 +1,23 @@
 Using Pandas lab
 
-You may work out of the editor if you need, but it is recommended to work in the console.
-For each question:
-You are given three possible answers.
-Delete the two that are incorrect.
-
-No other code required for this lab!!!
-They get tougher as you go.  If you get stuck, just guess and skip it.
-
-
 BEFORE WE GO FURTHER...
 import pandas as pd
 df = pd.read_csv('lego_sets.csv')
 df = df.loc[df['country'] == 'US']
+# The lines above will import our dataframe and eliminate all the foreign sets ($USD only).
 
-The lines above will import our dataframe and eliminate all the foreign sets ($USD only).
 
-NOW, THE QUESTIONS (watch out for trademark symbols)
+INSTRUCTIONS...
+You may work out of the editor if you need, but it is recommended to work in the console.
+For each question: You are given three possible answers.  Delete the two that are incorrect.
 
-How many Star Wars lego sets are avilable (use theme_name)?
+No code submission is required for this lab!!!
+They get tougher as you go.  If you get stuck, just guess and skip it.
+
+
+AND NOW... ELEVEN WEIRD QUESTIONS (watch out for trademark symbols)
+
+How many Star Wars lego sets are available (use theme_name)?
 77
 93
 111
@@ -50,7 +49,7 @@ Batgirl™ Batjet Chase,
 
 
 What is the name of the worst reviewed lego set ever?
-Tactical Batman™ & Superman™
+Detective’s Office
 Bane™ Toxic Truck Attack
 First Order AT-ST™
 
@@ -64,7 +63,7 @@ I'm a lego collector.  I went crazy and bought every single set.  How much did I
 38605.33
 44109.66
 
-So now I bought all the sets, how many lego pieces do I have?
+So now that I bought all the sets, how many lego pieces do I have?
 178882
 344624
 441096
