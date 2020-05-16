@@ -1,0 +1,47 @@
+Using Pandas groupby method lab
+
+
+INSTRUCTIONS...
+You may work out of the editor if you need, but it is recommended to work in the console.
+For each question: You are given three possible answers.  Delete the two that are incorrect.
+
+No code submission is required for this lab!!!
+They get tougher as you go.  If you get stuck, just guess and skip it.
+
+
+AND NOW... JUST A FEW QUESTIONS
+
+How many different Chicago Parks are represented by this dataset?
+188
+342
+514
+
+
+I'm a huge skater as everyone knows.  How many skate parks are in Chicago?
+(Check facility name)
+5
+6
+7
+
+Group by the FACILITY NAME, and use the count aggregate method on the grouped object.
+How many Water Slides are there?
+5
+10
+15
+
+
+Group by FACILITY TYPE, then by FACILITY NAME.  Use the count aggregate again.
+Are there more gymnasiums or outdoor basketball courts?
+indoor - gymnasiums
+outdoor - basktetball court
+
+
+Use grouby to find out the max number of facilities for any single park.
+47
+77
+107
+
+Tough one...  From that last question, what is the park name that has so much stuff?
+HUMBOLDT
+LINCOLN
+WASHINGTON
