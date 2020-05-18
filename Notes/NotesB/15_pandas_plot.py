@@ -12,3 +12,5 @@ ax = df['list_price'].plot.kde()
 ax.set_title("KDE Plot")
 ax.set(ylabel='frequency', xlabel='list_price')
 ax.set(ylabel='frequency', xlabel='list_price', title='KDE')
+
+

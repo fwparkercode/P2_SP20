@@ -14,19 +14,3 @@ print(grouped['female'])
 print(grouped['female'][1])
 print(type(grouped['female']))
 grouped = df.groupby(['Sex', 'Pclass'])['Survived'].mean().plot()
-
-
-
-# plotting groupby
-df.groupby(['Pclass'])['Fare'].mean().plot.bar()
-df.groupby(['Pclass'])['Survived'].count().plot.bar()
-df.groupby(['Pclass'])['Survived'].mean().plot.bar()
-
-
-df.groupby(['Sex', 'Pclass'])['Survived'].count().plot.bar()
-df.groupby(['Sex', 'Pclass'])['Survived'].count().unstack().plot.bar()
-df.groupby(['Pclass', 'Sex'])['Survived'].count().unstack().plot.bar()
-
-df['Child'] = df['Age'] < 15
-df.groupby(['Child', 'Pclass'])['Survived'].mean().unstack().plot.bar()
-
