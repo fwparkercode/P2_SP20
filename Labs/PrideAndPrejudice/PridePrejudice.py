@@ -16,8 +16,8 @@ A common Python pattern to count objects, produce histograms, or update stats is
 # Split the transcript into words - Use split and strip methods and store results in a list.
 # Create a dictionary object to store the word counts
 # Iterate through the list/text of Pride and Prejudice
-# Update word counts on your dict (10pts)
-# Sort words by counts in descending order (5pts)
+# Update word counts on your dict (10pts)  {'word1': 5, 'word2': 2 ...}
+# Sort words by counts in descending order (5pts)  stackoverflow probably?
 # Create Bar Graph (5pts)
 # Include descriptive titles and labels (5pts)
 
@@ -25,18 +25,20 @@ import requests
 import matplotlib.pyplot as plt
 
 url = "http://www.gutenberg.org/files/1342/1342-0.txt"
-pride_prejudice = requests.get(url).text
+pride = requests.get(url).text
 
-print(pride_prejudice[:1000])
+print(pride[:1000])
 
-wordlist = pride_prejudice.split()
-wordlist = [x.upper().strip(' ?.:;!\\<>{}\n\t') for x in wordlist]
+word_list = pride.split()
 
-print(wordlist[:1000])
+word_list = [x.upper().strip(' "?,.:;!/[]{}()\\\n\t') for x in word_list]
+print(word_list)
+
+
 
 # CHALLENGE (OPTIONAL)
 # Here is a list of the 1000 most common words in English: https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt
-# Make your plot show the 25 most common words in Hamlet NOT in this list.
+# Make your plot show the 25 most common words in Pride and Prejudice NOT in this list.
 
 # MORE CHALLENGES
 # look at Project Gutenberg, and try another book and see if your algorithms hold up.
